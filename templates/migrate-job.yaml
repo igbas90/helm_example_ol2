@@ -1,0 +1,29 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{.Release.Name}}-migrator
+  annotations:
+    "helm.sh/hook": post-install,post-upgrade
+    "helm.sh/hook-weight": "55"
+    "helm.sh/hook-delete-policy": before-hook-creation,hook-succeeded
+spec:
+  template:
+    spec:
+      volumes:
+        - name: config-job
+          secret:
+            secretName: {{.Release.Name}}-app-secret
+            items:
+              - key: ENV_VARIABLES
+                path: .env
+      containers:
+        - name: migrator-app
+          image: {{.Values.image_php.repository}}:{{.Values.image_php.tag}}
+          command: ["php", "/app/artisan", "migrate", "--no-interaction", "-vvv"]
+          volumeMounts:
+            - name: config-job
+              mountPath: /app/.env
+              subPath: .env
+
+      restartPolicy: Never
+  backoffLimit: 1
