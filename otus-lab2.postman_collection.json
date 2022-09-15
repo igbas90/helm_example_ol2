@@ -9,24 +9,77 @@
 		{
 			"name": "create",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"Alleemaster\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"bestjohn@doe.com\",\n  \"phone\": \"71002003040\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/user",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"user"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "update",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"Updaed-Alex\",\n  \"firstName\": \"John\",\n  \"lastName\": \"Doe\",\n  \"email\": \"bestjohn@doe.com\",\n  \"phone\": \"71002003040\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://arch.homework/user/1",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"user",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
 		{
 			"name": "delete",
 			"request": {
-				"method": "GET",
-				"header": []
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/user/1",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"user",
+						"1"
+					]
+				}
 			},
 			"response": []
 		},
@@ -34,7 +87,18 @@
 			"name": "list",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/user",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"user"
+					]
+				}
 			},
 			"response": []
 		},
@@ -42,7 +106,19 @@
 			"name": "get",
 			"request": {
 				"method": "GET",
-				"header": []
+				"header": [],
+				"url": {
+					"raw": "http://arch.homework/user/1",
+					"protocol": "http",
+					"host": [
+						"arch",
+						"homework"
+					],
+					"path": [
+						"user",
+						"1"
+					]
+				}
 			},
 			"response": []
 		}
